@@ -1,5 +1,7 @@
 import {useQuery,gql} from '@apollo/client'
 import { useState, useEffect } from 'react';
+import { LOADING, ERROR } from '../variables/staticComponents';
+
 
 
 const ALL_INFO = gql`query getPersonsDesc($personid: ID!){
@@ -20,21 +22,16 @@ const ALL_INFO = gql`query getPersonsDesc($personid: ID!){
   
 
 function PersonDescription(props) {
-  const [person,setPerson]=useState({});
+
   
-  
-  useEffect(() => {
-    // Actualiza el título del documento usando la API del navegador
-    console.log(props.identifier)
-  },[props.identifier]);
   
   const {loading,error,data}=useQuery(ALL_INFO,{
     variables: {
       personid:props.identifier
     },
   });
-  if(loading) return <h1>Loading</h1>
-  if(error) return <h1>Failed to Load Data</h1>
+  if(loading) return LOADING
+  if(error) return ERROR
       
   return (
     

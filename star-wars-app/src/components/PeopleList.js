@@ -1,6 +1,7 @@
 import {useQuery,gql} from '@apollo/client'
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { LOADING, ERROR } from '../variables/staticComponents';
+
 
 const ALL_PEOPLE = gql`{
   allPeople {
@@ -12,25 +13,28 @@ const ALL_PEOPLE = gql`{
         }
         homeworld{
           name
-          
         }
       }
     }
 }`;
 
+      
+
 
 function PeopleList(props) {
-    const [ClickedPerson,setClickedPerson]=useState({});
+
 
     const {loading,error,data}=useQuery(ALL_PEOPLE,{
     variables: {
       offset: 0,
-      limit: 3
+      limit: 10
     },
   });
-  if(loading) return <h1>Loading</h1>
-  if(error) return <p>Failed to Load Data</p>
-  const Clicked=(people)=>{
+  if(loading) return LOADING
+  if(error) return ERROR
+
+
+  const ClickPerson=(people)=>{
     console.log(people)
     props.setcurrentPerson(people)
   }
@@ -41,15 +45,15 @@ function PeopleList(props) {
                
       {
           data.allPeople.people.map((people,id) => (
-            <Link to="/person" className="card border-primary mb-1" key={people.id} onClick={()=>Clicked(people)}>
+            <Link to="/person" className="card border-primary mb-1" key={people.id} onClick={()=>ClickPerson(people)}>
               <div className="card-body text-dark">
                 <h5 className="font-weight-bold card-title ">{people.name}</h5>
                 <p className="card-text">{(people.species===null?"Human":people.species.name)+" from "+people.homeworld.name}</p>
               </div>
             </Link>
-            ))  
+            ))
       }
-        
+        {(loading)?LOADING:null}
       </div>
     
   );
