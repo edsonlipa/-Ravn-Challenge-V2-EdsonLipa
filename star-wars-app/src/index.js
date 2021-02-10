@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql, HttpLink } from '@apollo/client';
+import App from './App';
+import 'bootswatch/dist/flatly/bootstrap.min.css'; // Added this :boom:
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index'
+  }),
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+      <App />
+  </ApolloProvider>,
+  
   document.getElementById('root')
 );
 
