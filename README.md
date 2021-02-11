@@ -1,8 +1,7 @@
 # Ravn-Challenge-V2-EdsonLipa
-## Project description.
+## Project description
 This is a small challenge project that uses React js and Graphql to access and list the details of the characters from The Star Wars series.
 For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.netlify/functions/index) and [Apollo Client](https://www.apollographql.com/) were used.
-
 
 <img src="/images/img1.jpg" width="200" height="400"/>|
 <img src="/images/img2.jpg" width="200" height="400"/>|
@@ -26,10 +25,14 @@ For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.
 To run the project you just have to follow the following command lines (`npm` is the minimum requirement)
 ```
 git clone https://github.com/edsonlipa/Ravn-Challenge-V2-EdsonLipa.git
-cd star-wars-app/
+cd Ravn-Challenge-V2-EdsonLipa/star-wars-app/
+npm install
 npm start
 ```
+now you can now view star-wars-app in the browser.
 
+*  Local:            http://localhost:3000
+*  On Your Network:  http://{your_ip}:3000
 
 ## Additional information.
 I have assumed that all people with a null species are human, even though there are exceptions like 'R4-P17'
