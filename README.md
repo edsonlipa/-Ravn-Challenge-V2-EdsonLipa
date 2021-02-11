@@ -4,8 +4,9 @@ This is a small challenge project that uses React js and Graphql to access and l
 For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.netlify/functions/index) and [Apollo Client](https://www.apollographql.com/) were used.
 
 <img src="/images/img1.jpg" width="200" height="400"/>|
+<img src="/images/img5.jpg" width="200" height="400"/>|
 <img src="/images/img2.jpg" width="200" height="400"/>|
-<img src="/images/img3.jpg" width="200" height="400"/>
+<img src="/images/img3.jpg" width="200" height="400"/>|
 <img src="/images/img4.PNG" width="200" height="400"/>
 
 ###### In the images we can see the main functions:
@@ -18,6 +19,7 @@ For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.
 
 - [x]  npm: 6.14.9
 - [x]  node: 14.15.3
+- [x]  apollo/client: 3.3.8
 - [x]  bootswatch: 4.6.0
 - [x]  graphql: 15.5.0
 - [x]  react: 17.0.1
