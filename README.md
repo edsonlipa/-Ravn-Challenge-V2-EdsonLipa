@@ -23,7 +23,7 @@ For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.
 - [x]  react: 17.0.1
     
 ## Running instructions
-To run the project you just have to follow the following command lines (`npm` is the minimum requirement)
+To run the project you just have to follow the following command lines (`npm` and `git` are the minimum requirement)
 ```
 git clone https://github.com/edsonlipa/Ravn-Challenge-V2-EdsonLipa.git
 cd Ravn-Challenge-V2-EdsonLipa/star-wars-app/
