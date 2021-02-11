@@ -1,25 +1,39 @@
 # Ravn-Challenge-V2-EdsonLipa
+## Project description
+This is a small challenge project that uses React js and Graphql to access and list the details of the characters from The Star Wars series.
+For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.netlify/functions/index) and [Apollo Client](https://www.apollographql.com/) were used.
+
+<img src="/images/img1.jpg" width="200" height="400"/>|
+<img src="/images/img2.jpg" width="200" height="400"/>|
+<img src="/images/img3.jpg" width="200" height="400"/>
+<img src="/images/img4.PNG" width="200" height="400"/>
+
+###### In the images we can see the main functions:
+1. Show loading indicator when necessary.
+2. Indicate when a query has failed.
+3. Uses the allPeople field to load all people from the API.
+4. Shows details of a person.
+
 ## Setup
-- [x]  npm 6.14.9
-- [x]  "bootswatch": "^4.6.0",
-- [x]  "graphql": "^15.5.0",
-- [x]  "react": "^17.0.1",
+
+- [x]  npm: 6.14.9
+- [x]  node: 14.15.3
+- [x]  bootswatch: 4.6.0
+- [x]  graphql: 15.5.0
+- [x]  react: 17.0.1
     
 ## Running instructions
-To run the project you just have to follow the following command lines (`npm` is the minimum requirement)
+To run the project you just have to follow the following command lines (`npm` and `git` are the minimum requirement)
 ```
-git clone 
-cd project
+git clone https://github.com/edsonlipa/Ravn-Challenge-V2-EdsonLipa.git
+cd Ravn-Challenge-V2-EdsonLipa/star-wars-app/
+npm install
 npm start
 ```
+now you can now view star-wars-app in the browser.
 
-## Project description.
-This is a small challenge project that uses React js and Graphql to list and access the details of the characters from The Star Wars series.
-For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.netlify/functions/index) was used.
-
-<img src="/images/img1.jpg" width="250" height="500"/>|
-<img src="/images/img2.jpg" width="250" height="500"/>|
-<img src="/images/img3.jpg" width="250" height="500"/>
+*  Local:            http://localhost:3000
+*  On Your Network:  http://{your_ip}:3000
 
 ## Additional information.
 I have assumed that all people with a null species are human, even though there are exceptions like 'R4-P17'
