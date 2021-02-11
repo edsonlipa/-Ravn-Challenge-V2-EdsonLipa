@@ -1,11 +1,12 @@
 import {useQuery,gql} from '@apollo/client'
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { LOADING, ERROR } from '../variables/staticComponents';
 
 
-const ALL_PEOPLE = gql`{
-  allPeople {
-    people {
+const ALL_PEOPLE = gql`query ALL_PEOPLE($after: String){
+  allPeople  (first: 5, after: $after){
+    people{
         id 
         name
         species{
@@ -15,6 +16,10 @@ const ALL_PEOPLE = gql`{
           name
         }
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
 }`;
 
@@ -23,14 +28,15 @@ const ALL_PEOPLE = gql`{
 
 function PeopleList(props) {
 
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-    const {loading,error,data}=useQuery(ALL_PEOPLE,{
+    const {loading,error,data,fetchMore}=useQuery(ALL_PEOPLE,{
     variables: {
-      offset: 0,
-      limit: 5
+      after: null
     },
+    notifyOnNetworkStatusChange: true,
   });
-  if(loading) return LOADING
+  if(loading&&!data) return LOADING
   if(error) return ERROR
 
 
@@ -52,8 +58,30 @@ function PeopleList(props) {
               </div>
             </Link>
             ))
+            
       }
-        {(loading)?LOADING:null}
+      {(loading) ? LOADING:null}
+      <div
+        className={data.allPeople.pageInfo.hasNextPage?"btn btn-info btn-lg btn-block":"invisible"} 
+        
+        onClick={() => {
+          const endCursor = data.allPeople.pageInfo.endCursor;
+          if(data.allPeople.pageInfo.hasNextPage)
+          fetchMore({
+            variables: { after: endCursor },
+            updateQuery: (prevResult, { fetchMoreResult }) => {
+              fetchMoreResult.allPeople.people = [
+                ...prevResult.allPeople.people,
+                ...fetchMoreResult.allPeople.people,
+              ];
+              return fetchMoreResult;
+            },
+          });
+        }}
+      >
+        Load 5 More
+      </div>
+
       </div>
     
   );
