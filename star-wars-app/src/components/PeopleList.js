@@ -27,7 +27,7 @@ function PeopleList(props) {
     const {loading,error,data}=useQuery(ALL_PEOPLE,{
     variables: {
       offset: 0,
-      limit: 10
+      limit: 5
     },
   });
   if(loading) return LOADING
