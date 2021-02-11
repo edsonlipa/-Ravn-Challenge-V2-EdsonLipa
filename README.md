@@ -17,6 +17,7 @@ For this project [the Star Wars GraphQL API](https://swapi-graphql.netlify.app/.
 ## Setup
 
 - [x]  npm: 6.14.9
+- [x]  node: 14.15.3
 - [x]  bootswatch: 4.6.0
 - [x]  graphql: 15.5.0
 - [x]  react: 17.0.1
